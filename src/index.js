@@ -5,7 +5,6 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 
-const PORT = 3000;
 const app = express();
 const handlebars = exphbs.create({
     extname: "hbs",
@@ -78,4 +77,4 @@ app.post("/editar", funcionarioController.atualizarFuncionario);
 
 app.post("/deletar", funcionarioController.deletarFuncionario);
 
-app.listen(PORT, () => console.log("Rodando na porta: " + PORT));
+app.listen(process.env.PORT, () => console.log("Rodando na porta: " + process.env.PORT));
