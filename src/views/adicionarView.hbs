@@ -1,0 +1,57 @@
+{{> header}}
+
+{{#if msg}}
+<div class="alert alert-{{msg.status}} rounded-0">
+    {{msg.txt}}
+</div>
+{{/if}}
+
+<main class="container position-relative">
+    <div class="position-absolute">
+        <a href="/lista">
+            <i class="h1 text-black bi bi-chevron-left"></i>
+        </a>
+    </div>
+
+    <div class="my-3">
+        <h1 class="fw-bold m-0 text-center">Adicionar Funcionário</h1>
+    </div>
+
+    <form action="/adicionar" method="post" class="row justify-content-evenly gap-sm-0 gap-4" enctype="multipart/form-data">
+        <div class="col-sm-5 col-12 d-flex flex-column gap-4">
+            <div>
+                <label for="nome" class="form-label">Nome</label>
+                <input name="nome" type="text" class="form-control" placeholder="João Andrade">
+            </div>
+            <div>
+                <label for="email" class="form-label">Email</label>
+                <input name="email" type="email" class="form-control" placeholder="joao@example.com">
+            </div>
+            <div>
+                <label for="telefone" class="form-label">Telefone</label>
+                <input name="telefone" type="text" class="form-control" placeholder="(99) 99999-9999">
+            </div>
+            <div>
+                <label for="cpf" class="form-label">CPF</label>
+                <input name="cpf" type="text" class="form-control" placeholder="123.456.789-01">
+            </div>
+        </div>
+
+        <div class="col-sm-5 col-12 d-flex flex-column gap-4">
+            <div>
+                <label for="pis" class="form-label">PIS</label>
+                <input name="pis" type="text" class="form-control" placeholder="123.45678.90-1">
+            </div>
+            <div>
+                <label for="rg" class="form-label">RG</label>
+                <input name="rg" type="text" class="form-control" placeholder="12.345.678-9">
+            </div>
+            <div>
+                <label for="foto" class="form-label">Foto</label>
+                <input name="foto" type="file" class="form-control">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-50 mt-sm-5">Confirmar</button>
+    </form>
+</main>

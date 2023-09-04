@@ -1,0 +1,23 @@
+{{> header}}
+
+{{#if msg}}
+<div class="alert alert-{{msg.status}} rounded-0">
+    {{msg.txt}}
+</div>
+{{/if}}
+
+<main class="container">
+    <div class="row my-3">
+        <div class="col">
+            <h1 class="fw-bold m-0">Funcionários</h1>
+        </div>
+        <div class="col-1 d-flex justify-content-end ">
+            <a href="/adicionar"><i class="bi bi-person-fill-add text-success h1 m-0"></i></a>
+        </div>
+    </div>
+    <div class="d-flex flex-wrap justify-content-between">
+        {{#each funcionarios}}
+        {{> funcionario this}}
+        {{/each}}
+    </div>
+</main>
