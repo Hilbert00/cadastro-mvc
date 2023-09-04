@@ -60,7 +60,8 @@ function addFuncionario(req, res) {
         if (!fs.existsSync(path.join(__dirname, "../../public/pictures")))
             fs.mkdirSync(path.join(__dirname, "../../public/pictures"));
 
-        fs.renameSync(oldPath, newPath);
+        fs.copyFileSync(oldPath, newPath);
+        fs.rmSync(oldPath);
 
         const funcionario = new Funcionario(
             fields.nome[0],
@@ -112,7 +113,9 @@ function atualizarFuncionario(req, res) {
             const oldPath = pictureData.filepath;
             const newPath = path.join(__dirname, "../../public/pictures", pictureData.newFilename + ".png");
 
-            fs.renameSync(oldPath, newPath);
+            fs.copyFileSync(oldPath, newPath);
+            fs.rmSync(oldPath);
+
             if (fs.existsSync(path.join(__dirname, "../../public/pictures", funcionario.foto + ".png")))
                 fs.rmSync(path.join(__dirname, "../../public/pictures", funcionario.foto + ".png"));
 
